@@ -2,37 +2,29 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <title>Kayaks4Life</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="stylesheets/styles.css">
+  <title>Kayaks4Life</title>
 
-    <script src='https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js' crossorigin></script>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css' crossorigin rel='stylesheet' />
+  <script src='https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js' crossorigin></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css' crossorigin rel='stylesheet' />
 
 </head>
 
 <body class="">
 
+  <main class="">
+    <div class="">
+      <%- include('../partials/flash') %>
+      <%- body -%>
+    </div>
 
-
-    <main class="">
-        <div class="">
-            <%- include('../partials/flash') %>
-        </div>
-        <%- body -%>
-    </main>
-
-
-
-
-
-
-
+  </main>
 
 </body>
 <%- include('../partials/footer') %>
-    <script src="/jscripts/validateForms.js"></script>
+<script src="/jscripts/validateForms.js"></script>
 
 </html>
