@@ -13,7 +13,7 @@ cloudinary.config({
 const storage = new CloudinaryStorage({
     cloudinary: cloudinary,
     params: {
-        folder: 'YelpCamp',
+        folder: 'KayakStore',
         allowedFormats: ['jpg, png, jpeg']
     }
 })

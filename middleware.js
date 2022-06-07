@@ -1,6 +1,6 @@
-const Campground = require('./models/campground');
+const Launch = require('./models/launchsites');
 const AppError = require('./utils/AppError');
-const { campSchema, reviewSchema } = require('./joiSchemas.js');
+const { siteSchema, reviewSchema } = require('./joiSchemas.js');
 const Review = require('./models/review');
 
 module.exports.isLoggedIn = (req, res, next) => {
@@ -26,7 +26,7 @@ module.exports.validateReview = (req, res, next) => {
 module.exports.validateForm = (req, res, next) => {
 
 
-    const { error } = campSchema.validate(req.body);
+    const { error } = siteSchema.validate(req.body);
     if (error) {
         const msg = error.details.map(el => el.message).join(',')
         throw new AppError(msg, 400)
@@ -37,8 +37,8 @@ module.exports.validateForm = (req, res, next) => {
 
 module.exports.isAuthor = async (req, res, next) => {
 
-    const campground = await Campground.findById(req.params.id);
-    if (!campground.author.equals(req.user._id)) {
+    const locationSite = await Launch.findById(req.params.id);
+    if (!locationSite.author.equals(req.user._id)) {
         req.flash('error', 'You do not have permission for that.');
         return res.redirect('/');
     }
@@ -55,11 +55,11 @@ module.exports.isReviewAuthor = async (req, res, next) => {
     next();
 }
 
-module.exports.findCamp = async (req, res, next) => {
-    const campground = await Campground.findById(req.params.id);
-    if (!campground) {
-        req.flash('error', 'Cannot find that campground!')
-        return res.redirect('/campgrounds')
+module.exports.findSite = async (req, res, next) => {
+    const locationSite = await Launch.findById(req.params.id);
+    if (!locationSite) {
+        req.flash('error', 'Cannot find that Launch Location!')
+        return res.redirect('/launchLocations')
     }
     next();
 }

@@ -4,77 +4,57 @@
 
 
 
-    <link rel="stylesheet" href="/stylesheets/index.css">
-    <div class="container d-flex justify-content-center align-items-center mt-5 ">
-        <div class="row flex-fill">
-            <div class="col-md-6 offset-md-3 col-xl-6 offset-xl-3 ">
-                <div class="card shadow p-5">
-                    <div class="card-body">
-                        <h1 class="text-center">New Campground</h1>
-                        <form novalidate class="needs-validation" method="post" action="/campgrounds"
-                            enctype="multipart/form-data">
-                            <div class="mb-3">
-                                <label class="form-label" for="title">Title</label>
-                                <input required class="form-control" type="text" autofocus name="campground[title]"
-                                    id="title">
-                                <div class="valid-feedback">
-                                    Looks good!
-                                </div>
-                                <div class="invalid-feedback">
-                                    Camp name is required!
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label" for="location">Location</label>
-                                <input required class="form-control" type="text" name="campground[location]"
-                                    id="location">
-                                <div class="valid-feedback">
-                                    Looks good!
-                                </div>
-                                <div class="invalid-feedback">
-                                    Location is required!
-                                </div>
-                            </div>
+<link rel="stylesheet" href="/stylesheets/index.css">
+<div class="container d-flex justify-content-center align-items-center mt-5 ">
+  <div class="row flex-fill">
+    <div class="col-md-6 offset-md-3 col-xl-6 offset-xl-3 ">
+      <div class="card shadow p-5">
+        <div class="card-body">
+          <h1 class="text-center">New Launch Location</h1>
+          <form novalidate class="needs-validation" method="post" action="/launchLocations" enctype="multipart/form-data">
+            <div class="mb-3">
+              <label class="form-label" for="title">Title</label>
+              <input required class="form-control" type="text" autofocus name="locationSite[title]" id="title">
 
-
-                            <div class="mb-3">
-                                <label class="form-label" for="price">Campgorund Price</label>
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text" id="price-label">$</span>
-                                    <input required type="text" class="form-control" placeholder="0.00" id="price"
-                                        name="campground[price]" aria-label="price" aria-describedby="price-label">
-                                    <div class="valid-feedback">
-                                        Looks good!
-                                    </div>
-                                    <div class="invalid-feedback">
-                                        Description is required!
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label" for="description">Description</label>
-                                <textarea required class="form-control" type="text" name="campground[description]"
-                                    id="description"></textarea>
-                                <div class="valid-feedback">
-                                    Looks good!
-                                </div>
-                            </div>
-
-                            <div class="mb-3">
-                                <label class="form-label" for="image">Upload Image</label>
-                                <input required class="form-control" type="file" name="image" id="image" multiple>
-                                <div class="valid-feedback">
-                                    Looks good!
-                                </div>
-                                <div class="invalid-feedback">
-                                    Image is required!
-                                </div>
-                            </div>
-
-                            <button class="btn btn-success mb-3">Add campground</button>
-                        </form>
-                    </div>
-                </div>
             </div>
+            <div class="mb-3">
+              <label class="form-label" for="location">Location</label>
+              <input required class="form-control" type="text" name="locationSite[location]" id="location">
+
+            </div>
+
+
+            <div class="mb-3">
+              <label class="form-label" for="price">Parking Price</label>
+              <div class="input-group mb-3">
+                <span class="input-group-text" id="price-label">$</span>
+                <input required type="text" class="form-control" placeholder="0.00" id="price" name="locationSite[price]" aria-label="price" aria-describedby="price-label">
+                <div class="valid-feedback">
+                  Looks good!
+                </div>
+                <div class="invalid-feedback">
+                  Description is required!
+                </div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label" for="description">Description</label>
+              <textarea required class="form-control" type="text" name="locationSite[description]" id="description"></textarea>
+              <div class="valid-feedback">
+                Looks good!
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label" for="image">Upload Image</label>
+              <input required class="form-control" type="file" name="image" id="image" multiple>
+
+            </div>
+
+            <button class="btn btn--button btn--white">Add Launch Location</button>
+          </form>
         </div>
+      </div>
     </div>
+  </div>
+</div>

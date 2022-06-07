@@ -16,7 +16,7 @@ const AppError = require('./utils/AppError');
 const User = require('./models/user')
 const mongoSanitize = require('express-mongo-sanitize')
 const helmet = require('helmet')
-const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/yelpCamp'
+const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/kayakstore'
 
 
 const MongoStore = require('connect-mongo');
@@ -34,7 +34,7 @@ async function main() {
 // routing paths
 app.use(express.static(path.join(__dirname, 'public')));
 
-const campgroundsRoutes = require('./routes/launchLocations');
+const launchRoutes = require('./routes/launchLocations');
 const reviewsRoutes = require('./routes/reviews');
 const userRoutes = require('./routes/users');
 const { date, func } = require('joi');
@@ -79,22 +79,22 @@ app.use(helmet({ crossOriginEmbedderPolicy: false }));
 
 const scriptSrcUrls = [
 
-    "https://stackpath.bootstrapcdn.com/",
+
     "https://api.tiles.mapbox.com/",
     "https://api.mapbox.com/",
     "https://kit.fontawesome.com/",
     "https://cdnjs.cloudflare.com/",
-    "https://cdn.jsdelivr.net/",
+
     "https://res.cloudinary.com/dv5vm4sqh/"
 ];
 const styleSrcUrls = [
     "https://kit-free.fontawesome.com/",
-    "https://stackpath.bootstrapcdn.com/",
+
     "https://api.mapbox.com/",
     "https://api.tiles.mapbox.com/",
     "https://fonts.googleapis.com/",
     "https://use.fontawesome.com/",
-    "https://cdn.jsdelivr.net/",
+
     "https://res.cloudinary.com/dv5vm4sqh/"
 ];
 const connectSrcUrls = [
@@ -155,7 +155,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 
-app.use('/launchLocations', campgroundsRoutes)
+app.use('/launchLocations', launchRoutes)
 app.use('/launchLocations/:id/reviews', reviewsRoutes)
 app.use('/', userRoutes)
 

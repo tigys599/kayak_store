@@ -8,23 +8,23 @@ const extension = (joi) => ({
     },
     rules: {
         escapeHTML: {
-            validate(value,helpers){
-                const clean = sanitizeHtml(value,{
+            validate(value, helpers) {
+                const clean = sanitizeHtml(value, {
                     allowedTags: [],
                     allowedAttributes: {},
 
                 });
-                if(clean !== value) return helpers.error('string.escapeHTML', {value})
+                if (clean !== value) return helpers.error('string.escapeHTML', { value })
                 return clean;
-            }   
+            }
         }
     }
 });
 
 const Joi = BaseJoi.extend(extension)
 
-module.exports.campSchema = Joi.object({
-    campground: Joi.object({
+module.exports.siteSchema = Joi.object({
+    locationSite: Joi.object({
         title: Joi.string().required().escapeHTML(),
         price: Joi.number().required().min(0),
         // image: Joi.string().required(),

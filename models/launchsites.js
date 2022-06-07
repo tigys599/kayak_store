@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 const Review = require('./review')
 const Schema = mongoose.Schema;
-const opts = { toJSON: {virtuals: true}};
-const CampgroundSchema = new Schema({
+const opts = { toJSON: { virtuals: true } };
+const LaunchLocationSchema = new Schema({
     title: String,
     image: [{
         url: String,
@@ -33,17 +33,17 @@ const CampgroundSchema = new Schema({
             ref: 'Review'
         }
     ]
-}, opts );
+}, opts);
 
-CampgroundSchema.virtual('properties.popUpMarkup').get(function (){
-    return `<strong><a href="/campgrounds/${this._id}">${this.title}</a></strong>
-    <p>${this.description.substring(0,69)}...</p>`
+LaunchLocationSchema.virtual('properties.popUpMarkup').get(function () {
+    return `<strong><a href="/launchLocations/${this._id}">${this.title}</a></strong>
+    <p>${this.description.substring(0, 69)}...</p>`
 });
 
 
 
-// this mongoose middleware will remove all reviews if a campground is deleted
-CampgroundSchema.post('findOneAndDelete', async function (doc) {
+// this mongoose middleware will remove all reviews if a launch location is deleted
+LaunchLocationSchema.post('findOneAndDelete', async function (doc) {
     if (doc) {
         await Review.deleteMany({
             _id: {
@@ -53,7 +53,7 @@ CampgroundSchema.post('findOneAndDelete', async function (doc) {
     }
 })
 
-module.exports = mongoose.model('Campground', CampgroundSchema);
+module.exports = mongoose.model('Launch', LaunchLocationSchema);
 
 
 

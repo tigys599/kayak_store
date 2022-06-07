@@ -1,21 +1,21 @@
 const Review = require('../models/review');
-const Campground = require('../models/campground')
+const Launch = require('../models/launchsites')
 
 module.exports.submit = async (req, res) => {
-    const campground = await Campground.findById(req.params.id);
+    const locationSite = await Launch.findById(req.params.id);
     const review = new Review(req.body.review)
-    campground.reviews.push(review)
+    locationSite.reviews.push(review)
     review.author = req.user._id
     await review.save();
-    await campground.save();
+    await locationSite.save();
     req.flash('success', 'Created new review!')
-    res.redirect(`/launchLocations/${campground._id}`);
+    res.redirect(`/launchLocations/${locationSite._id}`);
 
 }
 
 module.exports.delete = async (req, res) => {
     const { id, reviewId } = req.params
-    await Campground.findByIdAndUpdate(id, { $pull: { reviewId } })
+    await Launch.findByIdAndUpdate(id, { $pull: { reviewId } })
     await Review.findByIdAndDelete(reviewId);
     req.flash('success', 'Successfully deleted review!')
     res.redirect(`/launchLocations/${id}`)

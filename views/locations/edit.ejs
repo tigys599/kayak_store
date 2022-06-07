@@ -1,98 +1,80 @@
 <%- layout ('layouts/boilerplate') %>
-   
+
 
 <link rel="stylesheet" href="/stylesheets/index.css">
 <div class="container d-flex justify-content-center align-items-center mt-5 ">
-    <div class="row flex-fill">
-        <div class="col-md-6 offset-md-3 col-xl-6 offset-xl-3 ">
-            <div class="card shadow p-5">
-                <div class="card-body">
-                    <h1 class="text-center">Edit Campground</h1>
-                    <form novalidate class="needs-validation" method="post" enctype="multipart/form-data"
-                    action="/campgrounds/<%=campground._id%>?_method=patch">
-                    <div class="mb-3">
-                        <label class="form-label" for="title">Title</label>
-                        <input required class="form-control" type="text" name="campground[title]" id="title"
-                            value='<%= campground.title %>'>
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
-                        <div class="invalid-feedback">
-                            Camp name is required!
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label" for="location">Location</label>
-                        <input required class="form-control" type="text" name="campground[location]" id="location"
-                            value="<%= campground.location %>">
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
-                        <div class="invalid-feedback">
-                            Location is required!
-                        </div>
-                    </div>
-    
-                    <div class="mb-3">
-                        <label class="form-label" for="price">Campgorund Price</label>
-                        <div class="input-group mb-3">
-                            <span class="input-group-text" id="price-label">$</span>
-                            <input required type="text" class="form-control" value="<%= campground.price %> " id="price"
-                                name="campground[price]" aria-label="price" aria-describedby="price-label">
-                            <div class="valid-feedback">
-                                Looks good!
-                            </div>
-                            <div class="invalid-feedback">
-                                Price is required!
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label" for="description">Description</label>
-                        <textarea required class="form-control" type="text" name="campground[description]"
-                            id="description"><%= campground.description %> </textarea>
-                        <div class="valid-feedback">
-                            Looks good!
-                        </div>
-                        <div class="invalid-feedback">
-                            Description is required!
-                        </div>
-                    </div>
-    
-                    <div class="mb-3">
-                        <label class="form-label" for="image">Upload Image</label>
-                        <input class="form-control" type="file" name="image" id="image" multiple>
-                        <div class="valid-feedback">
-                        </div>
-                    </div>
-    
-                    <div class="mb-3">
-                        <h5> Delete Images </h5>
-                        <div class="row row-cols-1 row-cols-md-4 g-4 mb-3">
-                            <% campground.image.forEach((img, i)=> { %>
-                                <div class="col">
-                                    <div class="card">
-                                        <img class="card-img" src="<%= img.url %>" alt="">
-                                        <div class="card-img-overlay text-end pt-1 pe-2">
-                                            <label class="visually-hidden" for="image-<%= i %>">Delete Image</label>
-                                            <input class="form-check-input" type="checkbox" name="deleteImages[]"
-                                                value="<%= img.filename %>" id="image-<%= i %>">
-                                        </div>
-                                    </div>
-                                </div>
-                                <% }) %>
-                        </div>
-                    </div>
-    
-    
-    
-                    <button class="btn btn-info mb-3">Update campground</button>
-                </form>
-                </div>
+  <div class="row flex-fill">
+    <div class="col-md-6 offset-md-3 col-xl-6 offset-xl-3 ">
+      <div class="card shadow p-5">
+        <div class="card-body">
+          <h1 class="text-center">Edit Launch Site</h1>
+          <form novalidate class="needs-validation" method="post" enctype="multipart/form-data" action="/launchLocations/<%=locationSite._id%>?_method=patch">
+            <div class="mb-3">
+              <label class="form-label" for="title">Title</label>
+              <input required class="form-control" type="text" name="locationSite[title]" id="title" value='<%= locationSite.title %>'>
+              <div class="valid-feedback">
+                Looks good!
+              </div>
+              <div class="invalid-feedback">
+                Launch name is required!
+              </div>
             </div>
+            <div class="">
+              <label class="" for="location">Location</label>
+              <input required class="form-control" type="text" name="locationSite[location]" id="location" value="<%= locationSite.location %>">
+              <div class="valid-feedback">
+                Looks good!
+              </div>
+              <div class="invalid-feedback">
+                Location is required!
+              </div>
+            </div>
+
+            <div class="">
+              <label class="" for="price">Parking Price</label>
+              <div class="">
+                <span class="" id="price-label">$</span>
+                <input required type="text" class="form-control" value="<%= locationSite.price %> " id="price" name="locationSite[price]" aria-label="price" aria-describedby="price-label">
+
+
+              </div>
+            </div>
+            <div class="">
+              <label class="" for="description">Description</label>
+              <textarea required class="form-control" type="text" name="locationSite[description]" id="description"><%= locationSite.description %> </textarea>
+
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label" for="image">Upload Image</label>
+              <input class="form-control" type="file" name="image" id="image" multiple>
+              <div class="valid-feedback">
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <h5> Delete Images </h5>
+              <div class="row row-cols-1 row-cols-md-4 g-4 mb-3">
+                <% locationSite.image.forEach((img, i)=> { %>
+                <div class="col">
+                  <div class="card">
+                    <img class="card-img" src="<%= img.url %>" alt="">
+                    <div class="card-img-overlay text-end pt-1 pe-2">
+                      <label class="visually-hidden" for="image-<%= i %>">Delete Image</label>
+                      <input class="form-check-input" type="checkbox" name="deleteImages[]" value="<%= img.filename %>" id="image-<%= i %>">
+                    </div>
+                  </div>
+                </div>
+                <% }) %>
+              </div>
+            </div>
+
+
+
+            <button class="btn btn-info mb-3">Update Launch Location</button>
+          </form>
         </div>
+      </div>
     </div>
+  </div>
 </div>
-
-
-
