@@ -1,38 +1,45 @@
 <%- layout ('layouts/boilerplate') %>
 
-    <div class="container d-flex justify-content-center align-items-center mt-5 ">
-        <div class="row flex-fill">
-            <div class="col-md-6 offset-md-3 col-xl-6 offset-xl-3 ">
-                <div class="card shadow p-5">
-                    <img src="https://images.unsplash.com/photo-1516497291062-595d775220cf?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=60&raw_url=true&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTM3fHxjYW1waW5nfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500" alt="" class="card-img-top">
-                    <div class="card-body">
-                        <h1 class="text-center">Login</h1>
+    <nav class="nav">
+        <p class="nav__logo">Kayaks4Life</p>
+        <a class="nav__item" aria-current="page" href="/">Home</a>
 
-                        <form novalidate class="needs-validation" method="post" action="">
-                            <div class="mb-3">
-                                <label class="form-label" for="username">Username:</label>
-                                <input required class="form-control" type="text" autofocus name="username" id="username"
-                                    placeholder="Username">
-                                <div class="valid-feedback">
-                                    Looks good!
-                                </div>
-                                <div class="invalid-feedback">
-                                    Username is required!
-                                </div>
+        <a class="nav__item" href="/launchLocations">Launch Locations</a>
+        <% if(!currentUser){ %>
+            <a class="nav__item nav__selected" href=" /login">Login</a>
+            <a class="nav__item" href="/register">Register</a>
+            <% }else{ %>
+                <a class="nav__item" href="/logout">Logout</a>
+                <% } %>
+
+    </nav>
+
+
+    <div class="">
+        <div class="">
+            <div class="">
+                <div class="feature">
+
+
+                    <div class="feature--card">
+                        <h1 class="">Login</h1>
+
+                        <form class="" method="post" action="">
+                            <div class="">
+                                <label class="signup__form--input-label" for="username">Username:</label>
+                                <input required class="signup__form--input-text" type="text" autofocus name="username"
+                                    id="username" placeholder="Username">
+
+
                             </div>
 
-                            <div class="mb-3">
-                                <label class="form-label" for="password">Password:</label>
-                                <input required class="form-control" type="password" name="password" id="password"
-                                    placeholder="">
-                                <div class="valid-feedback">
-                                    Looks good!
-                                </div>
-                                <div class="invalid-feedback">
-                                    Password is required!
-                                </div>
+                            <div class="">
+                                <label class="signup__form--input-label" for="password">Password:</label>
+                                <input required class="signup__form--input-text" type="password" name="password"
+                                    id="password" placeholder="">
+
                             </div>
-                            <button class="btn btn-lg btn-success full-wide">Login</button>
+                            <button class="btn btn--button btn--white ">Login</button>
                         </form>
                     </div>
                 </div>

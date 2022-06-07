@@ -1,61 +1,6 @@
-.u-center-text {
-    text-align: center;
+.container--fluid {
+    width: 100%;
+
 }
 
-.u-display-flex {
-    display: flex;
-}
-
-// MARGIN TOP //
-
-.u-margin-top-sm {
-    margin-top: 3rem;
-}
-
-.u-margin-top-md {
-    margin-top: 8rem;
-}
-
-.u-margin-top-lg {
-    margin-top: 16rem;
-}
-
-.u-margin-top-xl {
-    margin-top: 32rem;
-}
-
-// MARGIN BOTTOM//
-
-.u-margin-bottom-sm {
-    margin-bottom: 3rem;
-}
-
-.u-margin-bottom-md {
-    margin-bottom: 8rem;
-}
-
-.u-margin-bottom-lg {
-    margin-bottom: 16rem;
-}
-
-.u-margin-sm {
-    margin: 1rem;
-}
-
-.u-marginX-md {
-    margin-left: 2rem;
-    margin-right: 2rem;
-}
-
-.u-marginX-lg {
-    margin-left: 5rem;
-    margin-right: 5rem;
-}
-
-.u-padding-sm {
-    padding: 1rem;
-}
-
-.u-padding-top-lg {
-    padding-top: 16rem;
-}
+.container {}

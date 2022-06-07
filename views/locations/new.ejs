@@ -1,7 +1,7 @@
 <%- layout ('layouts/boilerplate') %>
 
 
- 
+
 
 
     <link rel="stylesheet" href="/stylesheets/index.css">
@@ -15,7 +15,8 @@
                             enctype="multipart/form-data">
                             <div class="mb-3">
                                 <label class="form-label" for="title">Title</label>
-                                <input required class="form-control" type="text" autofocus name="campground[title]" id="title">
+                                <input required class="form-control" type="text" autofocus name="campground[title]"
+                                    id="title">
                                 <div class="valid-feedback">
                                     Looks good!
                                 </div>
@@ -25,7 +26,8 @@
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="location">Location</label>
-                                <input required class="form-control" type="text" name="campground[location]" id="location">
+                                <input required class="form-control" type="text" name="campground[location]"
+                                    id="location">
                                 <div class="valid-feedback">
                                     Looks good!
                                 </div>
@@ -33,8 +35,8 @@
                                     Location is required!
                                 </div>
                             </div>
-                    
-                    
+
+
                             <div class="mb-3">
                                 <label class="form-label" for="price">Campgorund Price</label>
                                 <div class="input-group mb-3">
@@ -57,7 +59,7 @@
                                     Looks good!
                                 </div>
                             </div>
-                    
+
                             <div class="mb-3">
                                 <label class="form-label" for="image">Upload Image</label>
                                 <input required class="form-control" type="file" name="image" id="image" multiple>
@@ -68,7 +70,7 @@
                                     Image is required!
                                 </div>
                             </div>
-                    
+
                             <button class="btn btn-success mb-3">Add campground</button>
                         </form>
                     </div>

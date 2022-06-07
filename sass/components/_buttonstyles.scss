@@ -1,5 +1,12 @@
 .btn {
 
+    &--button {
+        padding: .5rem 1rem;
+        border-radius: 50px;
+
+
+    }
+
     &:link,
     &:visited {
         display: inline-block;

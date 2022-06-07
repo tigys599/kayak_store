@@ -1,0 +1,219 @@
+.nav {
+    width: 100%;
+    background-color: $color-navbar-dark-bg;
+    display: flex;
+    height: fit-content;
+    color: $color-navbar-light-text;
+    justify-content: space-between;
+    align-items: center;
+
+    &__item {
+        color: $color-navbar-light-text;
+
+
+        margin: 1rem 1rem 2rem 2rem;
+
+    }
+
+
+
+    &__logo {
+        margin-right: auto;
+        margin-left: 1rem;
+    }
+
+    &__selected {
+        border-bottom: 3px solid white;
+        color: #fff;
+
+    }
+
+}
+
+
+// hamburger icon button that is fixed in the top right, use html file in library
+.navigation {
+
+    #themes {
+        color: white;
+        font-size: 6rem;
+        margin-top: 3rem;
+        border-bottom: 2px solid #fff;
+        display: inline-block;
+        margin: 6rem auto 3rem auto;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    &__checkbox {
+        display: none;
+    }
+
+    &__button {
+        background-color: #fff;
+        height: 7rem;
+        width: 7rem;
+        position: fixed;
+        top: 6rem;
+        right: 6rem;
+        border-radius: 50%;
+        z-index: 2000;
+        box-shadow: 0 1.3rem 3.2rem rgba(0, 0, 0, 0.419);
+        cursor: pointer;
+
+    }
+
+    &__background {
+        height: 6rem;
+        width: 6rem;
+        border-radius: 50%;
+        position: fixed;
+        top: 6.5rem;
+        right: 6.5rem;
+        background-image: radial-gradient($color-font-bluebg, $color-font-bluebg, $color-font-bluebg 50%);
+        z-index: 1000;
+        transition: transform .8s;
+
+
+    }
+
+    &__nav {
+
+        display: flex;
+        flex-direction: column;
+
+        &__heading>h2 {}
+
+
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: 1500;
+        opacity: 0;
+        height: 0;
+        width: 0;
+
+
+
+    }
+
+    &__list {
+
+        list-style: none;
+        text-align: center;
+    }
+
+    &__item {
+        margin: 4rem;
+    }
+
+    &__link {
+
+        &:link,
+        &:visited {
+            display: inline-block;
+            font-size: 3rem;
+            font-weight: 300;
+            color: #fff;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            background-image: linear-gradient(120deg, transparent, transparent 50%, #fff 50%);
+            background-size: 230%;
+            transition: all .5s ease;
+            border-radius: 2px;
+        }
+
+        &:hover,
+        &:active {
+            background-position: 100%;
+            color: black;
+            transform: translateX(1rem);
+        }
+
+
+    }
+
+    &__checkbox:checked~&__background {
+        transform: scale(300);
+    }
+
+    &__checkbox:checked~&__nav {
+        animation: navLinks 1s ease-out;
+        backface-visibility: hidden;
+        animation-fill-mode: backwards;
+        opacity: 100%;
+        width: 100%;
+        height: 100vh;
+
+
+    }
+
+    //hamburger icon
+    // created a span that only contains &nbsp; (which is a space) made it 2px tall
+    // gave it a background color, which made a line the other 2 lines are created
+    // from the before and after elements which contain empty content to become visable
+    &__icon {
+        position: relative;
+        margin: 3.3rem 2.2rem;
+
+
+        &,
+        &::before,
+        &::after {
+            width: 3rem;
+            height: 2px;
+            background-color: $color-dark-gray;
+            display: inline-block;
+
+        }
+
+        &::before,
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            transition: all .2s;
+
+        }
+
+        &::before {
+            top: -.8rem;
+        }
+
+        &::after {
+            top: .8rem;
+        }
+
+
+    }
+
+    &__button:hover &__icon::after {
+        top: 1rem;
+    }
+
+    &__button:hover &__icon::before {
+        top: -1rem;
+    }
+
+    &__checkbox:checked+&__button &__icon {
+        background-color: transparent;
+
+    }
+
+    &__checkbox:checked+&__button &__icon::before {
+        transform: rotate(45deg);
+        margin-top: .9rem;
+        top: -.8rem;
+    }
+
+    &__checkbox:checked+&__button &__icon::after {
+        transform: rotate(-45deg);
+        margin-top: -.7rem;
+
+        top: .8rem;
+    }
+
+}

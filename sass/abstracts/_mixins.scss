@@ -35,6 +35,13 @@
     background-position: top;
 }
 
+@mixin backGroundPic {
+
+    background-image: url("../images/omar-roque-7ISAr-llpE8-unsplash.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
 @mixin centeredContainer {
     width: 33%;
     justify-content: center;

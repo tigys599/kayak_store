@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     
-  
+  	 "compile:sass": "sass sass/main.scss public/stylesheets/styles.css -w", 
     "start": "node index.js"
-  },
+ },
   "keywords": [],
   "author": "",
   "license": "ISC",

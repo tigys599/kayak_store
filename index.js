@@ -34,7 +34,7 @@ async function main() {
 // routing paths
 app.use(express.static(path.join(__dirname, 'public')));
 
-const campgroundsRoutes = require('./routes/campgrounds');
+const campgroundsRoutes = require('./routes/launchLocations');
 const reviewsRoutes = require('./routes/reviews');
 const userRoutes = require('./routes/users');
 const { date, func } = require('joi');
@@ -51,13 +51,13 @@ app.use(mongoSanitize())
 
 const secret = process.env.SECRET || "thisisoffline"
 
-   const store = MongoStore.create({
-        mongoUrl: dbUrl,
-        touchAfter: 24 * 3600, // time period in seconds
-        crypto:{
-            secret
-        }
-    });
+const store = MongoStore.create({
+    mongoUrl: dbUrl,
+    touchAfter: 24 * 3600, // time period in seconds
+    crypto: {
+        secret
+    }
+});
 
 const sessionConfig = {
     store,
@@ -71,14 +71,14 @@ const sessionConfig = {
         expires: Date.now() * 1000 * 60 * 60 * 24 * 7,
         maxAge: 1000 * 60 * 60 * 24 * 7
     }
-// "https://cdn.jsdelivr.net"
+    // "https://cdn.jsdelivr.net"
 }
 app.use(session(sessionConfig));
 app.use(flash());
-app.use(helmet( {crossOriginEmbedderPolicy: false} ));
+app.use(helmet({ crossOriginEmbedderPolicy: false }));
 
 const scriptSrcUrls = [
-    
+
     "https://stackpath.bootstrapcdn.com/",
     "https://api.tiles.mapbox.com/",
     "https://api.mapbox.com/",
@@ -103,27 +103,27 @@ const connectSrcUrls = [
     "https://events.mapbox.com",
     "https://res.cloudinary.com/dv5vm4sqh/"
 ];
-const fontSrcUrls = [ "https://res.cloudinary.com/tigys/" ];
- 
+const fontSrcUrls = ["https://res.cloudinary.com/tigys/"];
+
 app.use(
     helmet.contentSecurityPolicy({
-        directives : {
-            defaultSrc : [],
-            connectSrc : [ "'self'", ...connectSrcUrls ],
-            scriptSrc  : [ "'unsafe-inline'", "'self'", ...scriptSrcUrls ],
-            styleSrc   : [ "'self'", "'unsafe-inline'", ...styleSrcUrls ],
-            workerSrc  : [ "'self'", "blob:" ],
-            objectSrc  : [],
-            imgSrc     : [
+        directives: {
+            defaultSrc: [],
+            connectSrc: ["'self'", ...connectSrcUrls],
+            scriptSrc: ["'unsafe-inline'", "'self'", ...scriptSrcUrls],
+            styleSrc: ["'self'", "'unsafe-inline'", ...styleSrcUrls],
+            workerSrc: ["'self'", "blob:"],
+            objectSrc: [],
+            imgSrc: [
                 "'self'",
                 "blob:",
                 "data:",
                 "https://res.cloudinary.com/tigys/", //SHOULD MATCH YOUR CLOUDINARY ACCOUNT!
                 "https://images.unsplash.com/"
             ],
-            fontSrc    : [ "'self'", ...fontSrcUrls ],
-            mediaSrc   : [ "https://res.cloudinary.com/dv5vm4sqh/" ],
-            childSrc   : [ "blob:" ]
+            fontSrc: ["'self'", ...fontSrcUrls],
+            mediaSrc: ["https://res.cloudinary.com/dv5vm4sqh/"],
+            childSrc: ["blob:"]
         }
     })
 );
@@ -137,7 +137,7 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 app.use((req, res, next) => {
-    if (!['/login', '/', '/logout', '/campgrounds/:id/edit', '/campgrounds/new', '/register'].includes(req.originalUrl)) {
+    if (!['/login', '/', '/logout', '/launchLocation/:id/edit', '/launchLocation/new', '/register'].includes(req.originalUrl)) {
         req.session.returnTo = req.originalUrl;
     }
     res.locals.currentUser = req.user;
@@ -155,8 +155,8 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 
-app.use('/campgrounds', campgroundsRoutes)
-app.use('/campgrounds/:id/reviews', reviewsRoutes)
+app.use('/launchLocations', campgroundsRoutes)
+app.use('/launchLocations/:id/reviews', reviewsRoutes)
 app.use('/', userRoutes)
 
 app.get('/', (req, res) => {

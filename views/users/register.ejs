@@ -1,43 +1,59 @@
 <%- layout ('layouts/boilerplate') %>
-    <div class="row">
-        <h1 class="text-center">Register</h1>
-        <div class="col-6 offset-3">
-            <form novalidate class="needs-validation" method="post" action="">
-                <div class="mb-3">
-                    <label class="form-label" for="username">Username:</label>
-                    <input required class="form-control" type="text" name="username" id="username"
-                        placeholder="Username">
-                    <div class="valid-feedback">
-                        Looks good!
-                    </div>
-                    <div class="invalid-feedback">
-                        Username is required!
-                    </div>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label" for="email">Email:</label>
-                    <input required class="form-control" type="email" name="email" id="email"
-                        placeholder="Email@mail.com">
-                    <div class="valid-feedback">
-                        Looks good!
-                    </div>
-                    <div class="invalid-feedback">
-                        Email is required!
-                    </div>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label" for="password">Password:</label>
-                    <input required class="form-control" type="password" name="password" id="password" placeholder="">
-                    <div class="valid-feedback">
-                        Looks good!
-                    </div>
-                    <div class="invalid-feedback">
-                        Password is required!
-                    </div>
-                </div>
+    <nav class="nav">
+        <p class="nav__logo">Kayaks4Life</p>
+        <a class="nav__item" aria-current="page" href="/">Home</a>
 
-                <button class="btn btn-lg btn-success">Register</button>
-        </div>
-        </form>
+        <a class="nav__item" href="/launchLocations">Launch Locations</a>
+        <% if(!currentUser){ %>
+            <a class="nav__item" href=" /login">Login</a>
+            <a class="nav__item nav__selected" href="/register">Register</a>
+            <% }else{ %>
+                <a class="nav__item" href="/logout">Logout</a>
+                <% } %>
+
+    </nav>
+    <section class="feature">
+        <div class="feature--card">
+            <h1 class="">Register</h1>
+            <div class="">
+                <form novalidate class="" method="post" action="">
+                    <div class="">
+                        <label class="signup__form--input-label" for="username">Username:</label>
+                        <input required class="signup__form--input-text" type="text" name="username" id="username"
+                            placeholder="Username">
+                        <div class="">
+
+                        </div>
+                        <div class="">
+
+                        </div>
+                    </div>
+                    <div class="">
+                        <label class="signup__form--input-label" for="email">Email:</label>
+                        <input required class="signup__form--input-text" type="email" name="email" id="email"
+                            placeholder="Email@mail.com">
+                        <div class="">
+
+                        </div>
+                        <div class="">
+
+                        </div>
+                    </div>
+                    <div class="">
+                        <label class="signup__form--input-label" for="password">Password:</label>
+                        <input required class="signup__form--input-text" type="password" name="password" id="password"
+                            placeholder="">
+                        <div class="">
+
+                        </div>
+                        <div class="">
+
+                        </div>
+                    </div>
+
+                    <button class="btn btn--white btn--button btn--signup">Register</button>
+            </div>
+    </section>
+    </form>
     </div>
     </div>
