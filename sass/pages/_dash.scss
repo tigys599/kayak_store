@@ -1,0 +1,73 @@
+.content-wrapper {
+    width: 99vw;
+    display: flex;
+}
+
+.nav__side {
+    background-image: linear-gradient(to bottom right, blue, green);
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    margin-right: 3rem;
+    flex: 0 0 15%;
+    align-items: stretch;
+    padding-top: 5rem;
+    line-height: 2;
+
+    &-item--side {
+
+        width: 70%;
+        margin: auto;
+    }
+
+
+    &-item--container {
+        width: 100%;
+
+
+
+        &:hover {
+            background-color: black;
+        }
+    }
+
+
+
+
+
+    a {
+        color: white;
+        display: block;
+
+    }
+
+    ul {
+        list-style: none;
+    }
+
+
+
+
+
+
+
+
+    .nav__item--side {}
+
+
+
+    .news-letter {
+        height: 80vh;
+        width: 50%;
+        background-color: gainsboro;
+        margin-right: auto;
+    }
+}
+
+.widget {
+    height: 80vh;
+    width: 80vw;
+    background-color: rgb(232, 229, 229);
+}

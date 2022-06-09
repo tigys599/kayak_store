@@ -9,7 +9,7 @@
 
 <nav class="nav">
   <p class="nav__logo">Kayaks4Life</p>
-  <a class="nav__item" aria-current="page" href="/">Home</a>
+  <a class="nav__item" aria-current="page" href="/dashboard">Home</a>
 
   <a class="nav__item nav__selected" href="/launchLocations">Launch Locations</a>
   <% if(!currentUser){ %>
@@ -22,44 +22,48 @@
 </nav>
 
 
-<body class="indexbody">
+<body class="">
 
 
   <div id="cluster-map"></div>
-  <main class="">
+  <h1 class="index__heading">All Launch Locations</h1>
+  <main class="index__wrapper">
     <div class="">
       <%- include('../partials/flash') %>
     </div>
-    <h1 class="">All Launch Locations</h1>
+
+
+
 
 
     <% for(site of locationSite){ %>
 
-    <div class="">
-      <div class="">
+    <div class="index__card feature--card">
+      <div class="index__card--img-container">
         <div class="">
           <% if(site.image.length) {%>
-          <img class="" alt="" src=<%=site.image[0].url %>>
+          <img class="index__card--img" alt="kayak launch photo" src=<%=site.image[0].url %>>
           <% }else{ %>
-          <img class="" alt="" src="https://images.unsplash.com/photo-1501697372968-40fa90cd1da3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8NjR8NDgzMjUxfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60">
+          <img class="index__card--img" alt="" src="https://images.unsplash.com/photo-1501697372968-40fa90cd1da3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8NjR8NDgzMjUxfHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500&q=60">
           <% } %>
         </div>
+      </div>
+      <div class="index__card__footer">
         <div class="">
-          <div class="">
-            <h5 class="">
-              <%= site.title %>
-            </h5>
-            <p class="">
-              <%= site.description %>
-            </p>
-            <p class="">
-              <%= site.location %>
-            </p>
-            <a class="" href="/launchLocations/<%= site.id %>">View <%=
+          <h5 class="index__card__footer--title">
+            <%= site.title %>
+          </h5>
+          <p class="index__card__footer--description">
+            <%= site.description %>
+          </p>
+          <p class="index__card__footer--location">
+            <%= site.location %>
+          </p>
+          <a class="btn-text-primary" href="/launchLocations/<%= site.id %>">View <%=
                                         site.title %> </a>
-          </div>
         </div>
       </div>
+
     </div>
 
     <% } %>

@@ -1,37 +1,37 @@
 <%- layout('layouts/boilerplate') %>
 
 
-    <div class="">
-        <header class="">
-            <div>
+<div class="">
+  <header class="">
+    <div>
 
-                <nav class="nav">
-                    <p class="nav__logo">Kayaks4Life</p>
-                    <a class="nav__selected nav__item" aria-current="page" href="#">Home</a>
+      <nav class="nav">
+        <p class="nav__logo">Kayaks4Life</p>
+        <a class="nav__item" aria-current="page" href="/dashboard">Home</a>
 
-                    <a class="nav__item" href="/launchLocations">Launch Locations</a>
-                    <% if(!currentUser){ %>
-                        <a class="nav__item" href=" /login">Login</a>
-                        <a class="nav__item" href="/register">Register</a>
-                        <% }else{ %>
-                            <a class="nav__item" href="/logout">Logout</a>
-                            <% } %>
+        <a class="nav__item" href="/launchLocations">Launch Locations</a>
+        <% if(!currentUser){ %>
+        <a class="nav__item" href=" /login">Login</a>
+        <a class="nav__item" href="/register">Register</a>
+        <% }else{ %>
+        <a class="nav__item" href="/logout">Logout</a>
+        <% } %>
 
-                </nav>
-            </div>
-        </header>
-        <main class="main">
-            <div class="background-image">
-
-
-                <section class="main__content">
-                    <h1 class="main__content--heading">Welcome to Kayaks4Life!</h1>
-
-                    <a class="btn btn--white btn--splash" href="/launchLocations">Enter!</a>
-                </section>
-            </div>
-
-
-        </main>
-
+      </nav>
     </div>
+  </header>
+  <main class="main">
+    <div class="background-image">
+
+
+      <section class="main__content">
+        <h1 class="main__content--heading">Welcome to Kayaks4Life!</h1>
+
+        <a class="btn btn--white btn--splash" href="/dashboard">Enter!</a>
+      </section>
+    </div>
+
+
+  </main>
+
+</div>

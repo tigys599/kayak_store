@@ -75,58 +75,58 @@ const sessionConfig = {
 }
 app.use(session(sessionConfig));
 app.use(flash());
-app.use(helmet({ crossOriginEmbedderPolicy: false }));
+// app.use(helmet({ crossOriginEmbedderPolicy: false }));
 
-const scriptSrcUrls = [
+// const scriptSrcUrls = [
 
 
-    "https://api.tiles.mapbox.com/",
-    "https://api.mapbox.com/",
-    "https://kit.fontawesome.com/",
-    "https://cdnjs.cloudflare.com/",
+//     "https://api.tiles.mapbox.com/",
+//     "https://api.mapbox.com/",
+//     "https://kit.fontawesome.com/",
+//     "https://cdnjs.cloudflare.com/",
 
-    "https://res.cloudinary.com/dv5vm4sqh/"
-];
-const styleSrcUrls = [
-    "https://kit-free.fontawesome.com/",
+//     "https://res.cloudinary.com/dv5vm4sqh/"
+// ];
+// const styleSrcUrls = [
+//     "https://kit-free.fontawesome.com/",
 
-    "https://api.mapbox.com/",
-    "https://api.tiles.mapbox.com/",
-    "https://fonts.googleapis.com/",
-    "https://use.fontawesome.com/",
+//     "https://api.mapbox.com/",
+//     "https://api.tiles.mapbox.com/",
+//     "https://fonts.googleapis.com/",
+//     "https://use.fontawesome.com/",
 
-    "https://res.cloudinary.com/dv5vm4sqh/"
-];
-const connectSrcUrls = [
-    "https://*.tiles.mapbox.com",
-    "https://api.mapbox.com/",
-    "https://events.mapbox.com",
-    "https://res.cloudinary.com/dv5vm4sqh/"
-];
-const fontSrcUrls = ["https://res.cloudinary.com/tigys/"];
+//     "https://res.cloudinary.com/dv5vm4sqh/"
+// ];
+// const connectSrcUrls = [
+//     "https://*.tiles.mapbox.com",
+//     "https://api.mapbox.com/",
+//     "https://events.mapbox.com",
+//     "https://res.cloudinary.com/dv5vm4sqh/"
+// ];
+// const fontSrcUrls = ["https://res.cloudinary.com/tigys/"];
 
-app.use(
-    helmet.contentSecurityPolicy({
-        directives: {
-            defaultSrc: [],
-            connectSrc: ["'self'", ...connectSrcUrls],
-            scriptSrc: ["'unsafe-inline'", "'self'", ...scriptSrcUrls],
-            styleSrc: ["'self'", "'unsafe-inline'", ...styleSrcUrls],
-            workerSrc: ["'self'", "blob:"],
-            objectSrc: [],
-            imgSrc: [
-                "'self'",
-                "blob:",
-                "data:",
-                "https://res.cloudinary.com/tigys/", //SHOULD MATCH YOUR CLOUDINARY ACCOUNT!
-                "https://images.unsplash.com/"
-            ],
-            fontSrc: ["'self'", ...fontSrcUrls],
-            mediaSrc: ["https://res.cloudinary.com/dv5vm4sqh/"],
-            childSrc: ["blob:"]
-        }
-    })
-);
+// app.use(
+//     helmet.contentSecurityPolicy({
+//         directives: {
+//             defaultSrc: [],
+//             connectSrc: ["'self'", ...connectSrcUrls],
+//             scriptSrc: ["'unsafe-inline'", "'self'", ...scriptSrcUrls],
+//             styleSrc: ["'self'", "'unsafe-inline'", ...styleSrcUrls],
+//             workerSrc: ["'self'", "blob:"],
+//             objectSrc: [],
+//             imgSrc: [
+//                 "'self'",
+//                 "blob:",
+//                 "data:",
+//                 "https://res.cloudinary.com/tigys/", //SHOULD MATCH YOUR CLOUDINARY ACCOUNT!
+//                 "https://images.unsplash.com/"
+//             ],
+//             fontSrc: ["'self'", ...fontSrcUrls],
+//             mediaSrc: ["https://res.cloudinary.com/dv5vm4sqh/"],
+//             childSrc: ["blob:"]
+//         }
+//     })
+// );
 
 
 app.use(passport.initialize());
@@ -161,6 +161,10 @@ app.use('/', userRoutes)
 
 app.get('/', (req, res) => {
     res.render('home');
+});
+
+app.get('/dashboard', (req, res) => {
+    res.render('dash');
 });
 
 app.all('*', (req, res, next) => {

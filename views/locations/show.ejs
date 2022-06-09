@@ -1,8 +1,22 @@
 <%- layout('layouts/boilerplate') %>
-
+<link rel="stylesheet" href="/stylesheets/styles.css">
 <link rel="stylesheet" href="/stylesheets/stars.css">
 
 
+
+<nav class="nav">
+  <p class="nav__logo">Kayaks4Life</p>
+  <a class="nav__item" aria-current="page" href="/dashboard">Home</a>
+
+  <a class="nav__item" href="/launchLocations">Launch Locations</a>
+  <% if(!currentUser){ %>
+  <a class="nav__item" href=" /login">Login</a>
+  <a class="nav__item" href="/register">Register</a>
+  <% }else{ %>
+  <a class="nav__item" href="/logout">Logout</a>
+  <% } %>
+
+</nav>
 
 
 <div class="row">

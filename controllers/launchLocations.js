@@ -24,7 +24,7 @@ module.exports.createNew = async (req, res) => {
     locationSite.author = req.user._id
     await locationSite.save();
     req.flash('success', 'Successfully created a new Launch Site!')
-    res.redirect(`locations/${locationSite._id}`);
+    res.redirect(`launchLocations/${locationSite._id}`);
 }
 
 module.exports.newLaunchForm = (req, res, next) => {
@@ -61,7 +61,7 @@ module.exports.editSiteSubmit = async (req, res) => {
     }
 
     req.flash('success', 'Successfully updated Launch Site!')
-    res.redirect(`/locations/${locationSite._id}`);
+    res.redirect(`/launchLocations/${locationSite._id}`);
 
 
 }

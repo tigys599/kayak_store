@@ -1,0 +1,57 @@
+<%- layout ('layouts/boilerplate') %>
+
+<nav class="nav">
+  <p class="nav__logo">Kayaks4Life</p>
+  <a class="nav__item nav__selected" aria-current="page" href="/dashboard">Home</a>
+
+  <a class="nav__item" href="/launchLocations">Launch Locations</a>
+  <% if(!currentUser){ %>
+  <a class="nav__item" href=" /login">Login</a>
+  <a class="nav__item" href="/register">Register</a>
+  <% }else{ %>
+  <a class="nav__item" href="/logout">Logout</a>
+  <% } %>
+
+</nav>
+<main class="content-wrapper">
+  <nav class="nav__side">
+
+    <ul>
+      <div class="nav__side-item--container">
+        <li class="nav__side-item--side"><a href="https://www.amazon.com/s?k=kayak">Shop</a></li>
+      </div>
+      <div class="nav__side-item--container">
+        <li class="nav__side-item--side"><a href="/launchLocations">Launch Locations</a></li>
+      </div>
+      <div class="nav__side-item--container">
+        <li class="nav__side-item--side"><a href="#"></a>Kayak content</li>
+      </div>
+      <div class="nav__side-item--container">
+        <li class="nav__side-item--side"><a href="#"></a>Kayak Ipsum</li>
+      </div>
+      <div class="nav__side-item--container">
+        <li class="nav__side-item--side"><a href="#">About</a></li>
+      </div>
+    </ul>
+
+  </nav>
+
+
+  <section class="news-letter">
+    <!-- this is where I can put a news letter perhaps mixin some ads later on -->
+    <div class="">
+      <h1 class="news-letter__heading"></h1>
+      <div class="widget">
+        <rssapp-wall id="WAwTgQHQlKoXmJec"></rssapp-wall>
+      </div>
+    </div>
+  </section>
+
+
+</main>
+<section>
+  <!-- This will be on the right side of the viewport only on desktop perhaps containing some
+    quick ref links or such -->
+</section>
+</div>
+<script src="https://widget.rss.app/v1/wall.js" type="text/javascript" async></script>

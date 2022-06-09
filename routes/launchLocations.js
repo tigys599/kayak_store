@@ -11,8 +11,14 @@ const upload = multer({ storage })
 
 router.route('/')
     .get(funCatch(launchsites.index))
-    .post(isLoggedIn, upload.array('image'), validateForm, funCatch(launchsites.createNew))
+    .post(isLoggedIn, upload.array('image'), validateForm, funCatch(launchsites.createNew));
+
+router.get('/dashboard')
+
 router.get('/new', isLoggedIn, launchsites.newLaunchForm);
+
+
+
 
 router.route('/:id/')
     .get(findSite, funCatch(launchsites.showSite))
